@@ -1,0 +1,1 @@
+Trong tương lai nếu TLU muốn thêm module (ví dụ: portal sinh viên, đăng ký học, lớp học online), kiến trúc web hiện tại có dễ mở rộng không?

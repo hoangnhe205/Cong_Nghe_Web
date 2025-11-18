@@ -1,0 +1,4 @@
+Nhìn vào cửa sổ "Headers" (Phần 2, TODO 6), tìm và chép lại chính xác 3 thông tin sau:
+-Request URL:https://tlu.edu.vn/
+-Request Method: GET
+-Status Code: 200 OK
