@@ -1,0 +1,1 @@
+Khi số lượng người dùng tăng lên hàng nghìn, việc dùng PDO và prepared statement ảnh hưởng như thế nào đến hiệu năng so với query thông thường?
