@@ -1,0 +1,1 @@
+Trong Controller, tại sao ta phải redirect (header('Location: index.php')) sau khi thêm sinh viên? Điều gì xảy ra nếu không redirect?

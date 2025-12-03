@@ -1,0 +1,51 @@
+<?php
+    
+    require_once 'models/SinhVienModel.php';
+
+    // === THIẾT LẬP KẾT NỐI PDO ===
+    // TODO 7: Copy code PDO từ PHT Chương 4 vào đây
+    $host = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "cse485_web";
+    $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";
+
+    try 
+    {
+        // TODO 1: Tạo đối tượng PDO để kết nối CSDL
+        // Gợi ý: $pdo = new PDO(...); 
+        $pdo = new PDO($dsn, $username, $password);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    }
+    catch (\PDOException $e)
+    {
+        die("Kết nối thất bại !!".$e->getMessage());
+    }
+
+    // === KẾT THÚC KẾT NỐI PDO ===
+    // TODO 8: Kiểm tra xem có hành động POST (thêm sinh viên) không
+    // Gợi ý: Dùng isset($_POST['ten_sinh_vien'])
+    if (isset($_POST['ten_sinh_vien']))
+    {
+        // TODO 9: Nếu có, lấy $ten và $email từ $_POST
+        $ten = $_POST['ten_sinh_vien'];
+        $email = $_POST['email'];
+
+        // TODO 10: Gọi hàm addSinhVien() từ Model
+        // (Truyền $pdo, $ten, $email vào hàm)
+        addSinhVien($pdo, $ten, $email);
+
+        // TODO 10: Gọi hàm addSinhVien() từ Model
+        // (Truyền $pdo, $ten, $email vào hàm)
+        header('Location: index.php');
+        exit;
+    }
+    // TODO 12: (Luôn luôn) Gọi hàm getAllSinhVien() từ Model
+    // (Truyền $pdo vào hàm)
+    // Lưu kết quả trả về vào một biến, ví dụ: $danh_sach_sv
+    $danh_sach_sv = getAllSinhVien($pdo);
+
+    // TODO 13: (Rất quan trọng) Import (include) tệp View ở cuối cùng
+    // Tệp View sẽ tự động "nhìn thấy" biến $danh_sach_sv mà ta vừa tạo
+    include 'views/sinhvien_view.php';
+?>
